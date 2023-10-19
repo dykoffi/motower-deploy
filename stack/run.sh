@@ -24,4 +24,4 @@ tar cf - realm.json | kubectl exec -i -n $namespace keycloak-0 -- tar xf - -C /o
 kubectl exec -i -n $namespace keycloak-0 -- kcadm.sh create realms -f /opt/bitnami/keycloak/realm.json --server http://localhost:8080 --realm master --user admin --password $keycloak_password
 
 # clear
-# helm upgrade --install minio bitnami/minio --namespace $namespace --version "12.8.15" -f $(pwd)/minio_values.yaml
+helm upgrade --install minio bitnami/minio --namespace $namespace --version "12.8.15" -f $(pwd)/minio_values.yaml
