@@ -18,7 +18,7 @@ spec:
         - name: regcred
       containers:
         - name: frontend-ihm
-          image: system.registry.eneci.net/oci-frontend:local  #Change this image according your env
+          image: system.registry.eneci.net/oci-frontend:latest  #Change this image according your env
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
