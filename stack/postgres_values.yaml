@@ -1,0 +1,15 @@
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+  storageClass: ""
+  postgresql:
+    auth:
+      postgresPassword: ""
+      username: "motower"
+      password: "6Sfa6MTpt96dY2D9Jv5c"
+      database: "ihm_db"
+      existingSecret: ""
+      secretKeys:
+        adminPasswordKey: ""
+        userPasswordKey: ""
+        replicationPasswordKey: ""

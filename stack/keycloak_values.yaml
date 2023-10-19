@@ -1,0 +1,15 @@
+fullnameOverride: keycloak
+auth:
+  adminUser: admin
+  adminPassword: 6Sfa6MTpt96dY2D9Jv5c
+postgresql:
+  enabled: true
+  postgresqlUsername: keycloak
+  postgresqlPassword: 6Sfa6MTpt96dY2D9Jv5c
+  postgresqlDatabase: keycloak
+proxyAddressForwarding: true
+service:
+  type: NodePort
+  nodePorts:
+    http: "30402"
+    https: "30403"
