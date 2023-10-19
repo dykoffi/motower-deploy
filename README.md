@@ -20,12 +20,8 @@ cd k8s
 kubectl apply -f back.yml
 ```
 
-6. Get environment variables before building frontent
-```bash
-sh get_vars.sh
-```
-
 7. Build frontent image using previous env vars results and push it on docker registry
+
 8. run frontent deployement
 ```bash
 cd k8s
