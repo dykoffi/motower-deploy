@@ -830,18 +830,18 @@
       "clientId": "nest-app",
       "name": "nest-app",
       "description": "",
-      "rootUrl": "http://192.168.1.165:30401",
-      "adminUrl": "http://192.168.1.165:30401",
-      "baseUrl": "http://192.168.1.165:30401/",
+      "rootUrl": "http://localhost:8080",
+      "adminUrl": "http://localhost:8080",
+      "baseUrl": "http://localhost:8080/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": true,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://192.168.1.165:30401/*"
+        "http://localhost:8080/*"
       ],
       "webOrigins": [
-        "http://192.168.1.165:30401"
+        "http://localhost:8080"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -856,7 +856,7 @@
       "attributes": {
         "oidc.ciba.grant.enabled": "false",
         "backchannel.logout.session.required": "true",
-        "post.logout.redirect.uris": "http://192.168.1.165:30401/*",
+        "post.logout.redirect.uris": "http://localhost:8080/*",
         "display.on.consent.screen": "false",
         "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
