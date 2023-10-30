@@ -1,0 +1,13 @@
+kind: ResourceQuota
+metadata:
+  name: resoucre-quota-ihm
+  namespace: motower-ihm
+spec:
+  hard:
+    limits.cpu: "3"
+    limits.memory: 2Gi
+
+    requests.cpu: "3"
+    requests.memory: 2Gi
+
+    requests.storage: 20Gi

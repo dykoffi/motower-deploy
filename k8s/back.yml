@@ -39,9 +39,9 @@ spec:
             - name: MINIO_ACCESS_KEY
               value: motower #Change this value according your env
             - name: MINIO_SECRET_KEY
-              value: 6Sfa6MTpt96dY2D9Jv5c #Change this value according your env
+              value: 3Gkbd2QoRrhyvQyyVobQeBHJ6u3CHdgdO3MXrF1k #Change this value according your env
             - name: MINIO_BUCKETNAME
-              value: motower
+              value: motower-preprod
             - name: DATABASE_URL
               value: postgresql://motower:6Sfa6MTpt96dY2D9Jv5c@postgres-postgresql:5432/ihm_db?schema=public
           ports:
