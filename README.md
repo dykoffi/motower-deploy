@@ -11,7 +11,7 @@ sh run.sh
 3. Build backend image and push it on docker registry
 4. Create kubernetes imagePullsecret for pulling image from private registry
 ```bash
-kubectl create secret docker-registry <secretName> --docker-server= --docker-user= --docker-password=
+kubectl create secret docker-registry <secretName> --docker-server= --docker-username= --docker-password=
 ```
 
 5. Run backend deployement
