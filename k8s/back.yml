@@ -15,7 +15,7 @@ spec:
         app: backend-ihm
     spec:
       imagePullSecrets:
-        - name: regcred
+        - name: dockerSecret
       containers:
         - name: backend-ihm
           image: system.registry.eneci.net/oci-backend:latest #Change this image according your env
@@ -26,11 +26,11 @@ spec:
                 command: ["/bin/sh", "-c", "npx prisma db seed"]
           resources:
             requests:
-              cpu: "500m"
+              cpu: "250m"
               memory: "256Mi"
             limits:
               cpu: "1"
-              memory: "500Mi"
+              memory: "512Mi"
           env:
             - name: MINIO_ENDPOINT
               value: "10.242.38.117"

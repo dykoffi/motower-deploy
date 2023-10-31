@@ -15,7 +15,7 @@ spec:
         app: frontend-ihm
     spec:
       imagePullSecrets:
-        - name: regcred
+        - name: dockerSecret
       containers:
         - name: frontend-ihm
           image: system.registry.eneci.net/oci-frontend:latest  #Change this image according your env
@@ -24,11 +24,11 @@ spec:
             - containerPort: 8080
           resources:
             requests:
-              cpu: "500m"
+              cpu: "100m"
               memory: "256Mi"
             limits:
-              cpu: "1"
-              memory: "500Mi"
+              cpu: "500m"
+              memory: "512Mi"
 
 ---
 apiVersion: v1

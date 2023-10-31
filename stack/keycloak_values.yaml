@@ -13,3 +13,10 @@ service:
   nodePorts:
     http: "30402"
     https: "30403"
+resources:
+  requests:
+    cpu: "400m"
+    memory: "256Mi"
+  limits:
+    cpu: "1"
+    memory: "512Mi"
