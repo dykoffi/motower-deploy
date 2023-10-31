@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: motower-ihm
+  namespace: motower-app
   name: backend-ihm
   labels:
     app: backend-ihm
@@ -50,7 +50,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: motower-ihm
+  namespace: motower-app
   name: backend-ihm-svc
 spec:
   type: NodePort

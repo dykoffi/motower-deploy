@@ -1,4 +1,4 @@
-namespace=motower-ihm
+namespace=motower-app
 
 ## Desinstaller la chart postgres
 helm uninstall postgres --namespace $namespace || true

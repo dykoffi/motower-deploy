@@ -1,7 +1,7 @@
 kind: ResourceQuota
 metadata:
   name: resoucre-quota-ihm
-  namespace: motower-ihm
+  namespace: motower-app
 spec:
   hard:
     requests.cpu: "2"

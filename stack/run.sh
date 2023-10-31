@@ -1,5 +1,5 @@
 ## Definir les variables
-namespace=motower-ihm
+namespace=motower-app
 keycloak_client=nest-app
 keycloak_realm=gps-realm
 
