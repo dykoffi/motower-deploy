@@ -1,6 +1,6 @@
-## Create namespace motower-ihm
+## Create namespace motower-app
 ```bash
-kubectl create ns motower-ihm
+kubectl create ns motower-app
 ```
 
 ## Create resource quota namespace
@@ -17,7 +17,7 @@ sh run.sh
 ## Build backend image and push it on docker registry
 ## Create kubernetes imagePullsecret for pulling image from private registry
 ```bash
-kubectl create secret docker-registry dockerSecret -n motower-ihm --docker-server= --docker-username= --docker-password=
+kubectl create secret docker-registry dockerSecret -n motower-app --docker-server= --docker-username= --docker-password=
 ```
 
 ## Run backend deployement
