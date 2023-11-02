@@ -20,6 +20,15 @@ spec:
         - name: frontend-ihm
           image: system.registry.eneci.net/oci-frontend:latest  #Change this image according your env
           imagePullPolicy: Always
+          env:
+            - name: VITE_KEYCLOAK_URL_AUTH
+              value: http://10.242.36.133:30402
+            - name: VITE_KEYCLOAK_REALM
+              value: gps-realm #Change this value according your env
+            - name: VITE_KEYCLOAK_CLIENT
+              value: nest-app #Change this value according your env
+            - name: VITE_BASE_URL_API
+              value: http://10.242.36.133:30400 #Change this value according your env
           ports:
             - containerPort: 8080
           resources:
