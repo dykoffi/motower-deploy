@@ -5,7 +5,7 @@ kubectl create ns motower-app
 
 ## Create resource quota namespace
 ```bash
-kubectl apply k8s/rq.yml
+kubectl apply -f k8s/rq.yml
 ```
 
 ## Install Stack chart helm (Postgres and keycloak)
