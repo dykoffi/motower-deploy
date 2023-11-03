@@ -33,7 +33,7 @@ spec:
               memory: "512Mi"
           env:
             - name: MINIO_ENDPOINT
-              value: "10.242.38.117"
+              value: "10.242.36.137"
             - name: MINIO_PORT
               value: "30404" #Change this value according your env
             - name: MINIO_ACCESS_KEY
