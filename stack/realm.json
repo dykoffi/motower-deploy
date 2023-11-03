@@ -470,7 +470,6 @@
         }
       ],
       "security-admin-console": [],
-      "rancher": [],
       "admin-cli": [],
       "account-console": [],
       "broker": [
