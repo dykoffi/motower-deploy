@@ -1,9 +1,0 @@
-service:
-  type: NodePort
-  nodePorts:
-    api: 30404
-    console: 30405
-auth:
-  rootUser: admin
-  rootPassword: "6Sfa6MTpt96dY2D9Jv5c"
-  existingSecret: ""

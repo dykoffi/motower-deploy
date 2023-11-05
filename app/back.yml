@@ -15,33 +15,29 @@ spec:
         app: backend-ihm
     spec:
       imagePullSecrets:
-        - name: dockerSecret
+        - name: dockersecret
       containers:
         - name: backend-ihm
           image: system.registry.eneci.net/oci-backend:latest #Change this image according your env
           imagePullPolicy: Always
-          lifecycle:
-            postStart:
-              exec:
-                command: ["/bin/sh", "-c", "npx prisma db seed"]
           resources:
             requests:
-              cpu: "250m"
-              memory: "256Mi"
+              cpu: 250m
+              memory: 256Mi
             limits:
-              cpu: "1"
-              memory: "512Mi"
+              cpu: 250m
+              memory: 256Mi
           env:
             - name: MINIO_ENDPOINT
-              value: "10.242.36.137"
+              value: "74.208.105.51"
             - name: MINIO_PORT
-              value: "30404" #Change this value according your env
+              value: "9000" #Change this value according your env
             - name: MINIO_ACCESS_KEY
               value: motower #Change this value according your env
             - name: MINIO_SECRET_KEY
               value: 3Gkbd2QoRrhyvQyyVobQeBHJ6u3CHdgdO3MXrF1k #Change this value according your env
             - name: MINIO_BUCKETNAME
-              value: motower-preprod
+              value: motower
             - name: DATABASE_URL
               value: postgresql://motower:6Sfa6MTpt96dY2D9Jv5c@postgres-postgresql:5432/ihm_db?schema=public
           ports:

@@ -1,14 +1,18 @@
-## Create namespace motower-app
+## Create namespace motower-app 
+- On rke2
 ```bash
 kubectl create ns motower-app
 ```
-
-## Create resource quota namespace
+- On Robin
 ```bash
-kubectl apply -f k8s/rq.yml
+robin namespace add motower-app
+  --username <username>
+  --tenant <tenant>
+  --import-namespace
 ```
 
-## Install Stack chart helm (Postgres and keycloak)
+
+## Install Stack apps (Postgres and keycloak)
 ```bash
 cd stack
 sh run.sh
@@ -17,12 +21,12 @@ sh run.sh
 ## Build backend image and push it on docker registry
 ## Create kubernetes imagePullsecret for pulling image from private registry
 ```bash
-kubectl create secret docker-registry dockerSecret -n motower-app --docker-server= --docker-username= --docker-password=
+kubectl create secret docker-registry dockersecret -n motower-app --docker-server= --docker-username= --docker-password=
 ```
 
 ## Run backend deployement
 ```bash
-cd k8s
+cd app
 kubectl apply -f back.yml
 ```
 
@@ -30,16 +34,17 @@ kubectl apply -f back.yml
 
 ## run frontent deployement
 ```bash
-cd k8s
+cd app
 kubectl apply -f front.yml
 ```
 ## Configure keycloak
-  1. Select the realm gps-realm
-  2. In User Federation > AD OCI : Update ldap password and test connection.
+  1. Create new realm gps-realm by importing a realm.json file
+  2. Select the realm gps-realm
+  3. In User Federation > AD OCI : Update ldap password and test connection.
     If the connection doesn't work disable ldap config
-  3. In the Settings of nest-app client: Change all host value by the frontend host
-  4. Create one user with credentials
-  5. Assign roles (nest-app client roles) to this user
+  4. In the Settings of nest-app client: Change all host value by the frontend host
+  5. Create one user with credentials
+  6. Assign roles (nest-app client roles) to this user
 
 ## Test Application
   1. Go to the frontend url
