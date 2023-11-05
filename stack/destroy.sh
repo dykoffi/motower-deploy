@@ -1,5 +1,4 @@
 namespace=motower-app
-minio_namespace=motower-minio
 
 ## Desintaller keycloak
 kubectl delete -f keycloak.yml

@@ -1,6 +1,5 @@
 ## Definir les variables
 namespace=motower-app
-minio_namespace=motower-minio
 
 ## Appliquer les ressources quotas
 kubectl apply -f rq.yml
