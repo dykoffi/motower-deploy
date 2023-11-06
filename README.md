@@ -5,12 +5,8 @@ kubectl create ns motower-app
 ```
 - On Robin
 ```bash
-robin namespace add motower-app
-  --username <username>
-  --tenant <tenant>
-  --import-namespace
+robin namespace add motower-app --username motower
 ```
-
 
 ## Install Stack apps (Postgres and keycloak)
 ```bash
@@ -50,3 +46,8 @@ kubectl apply -f front.yml
   1. Go to the frontend url
   2. Login with the user you have previously created
   3. Try to do something
+
+## Delete All
+```bash
+kubectl delete all --all -n motower-app
+```
