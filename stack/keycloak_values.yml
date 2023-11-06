@@ -7,13 +7,14 @@ postgresql:
   postgresqlUsername: keycloak
   postgresqlPassword: 6Sfa6MTpt96dY2D9Jv5c
   postgresqlDatabase: keycloak
-  resources:
-    requests:
-      cpu: 250m
-      memory: 256Mi
-    limits:
-      cpu: 250m
-      memory: 256Mi
+  primary:
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
 proxyAddressForwarding: true
 service:
   type: NodePort
