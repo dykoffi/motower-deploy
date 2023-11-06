@@ -19,7 +19,6 @@ spec:
       containers:
         - name: frontend-ihm
           image: system.registry.eneci.net/oci-frontend:latest  #Change this image according your env
-          imagePullPolicy: Always
           env:
             - name: VITE_KEYCLOAK_URL_AUTH
               value: http://10.240.38.109:30402

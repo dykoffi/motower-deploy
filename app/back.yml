@@ -19,7 +19,6 @@ spec:
       containers:
         - name: backend-ihm
           image: system.registry.eneci.net/oci-backend:latest #Change this image according your env
-          imagePullPolicy: Always
           resources:
             requests:
               cpu: 250m

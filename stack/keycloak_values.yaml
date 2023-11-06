@@ -1,0 +1,27 @@
+fullnameOverride: keycloak
+auth:
+  adminUser: admin
+  adminPassword: 6Sfa6MTpt96dY2D9Jv5c
+postgresql:
+  enabled: false
+externalDatabase:
+  host: keycloak-postgres-postgresql
+  port: 5432
+  user: keycloak
+  database: keycloak
+  password: 6Sfa6MTpt96dY2D9Jv5c
+  existingSecret: ""
+  existingSecretPasswordKey: ""
+proxyAddressForwarding: true
+service:
+  type: NodePort
+  nodePorts:
+    http: "30402"
+    https: "30403"
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
