@@ -17,6 +17,8 @@ spec:
       containers:
         - name: keycloak
           image: bitnami/keycloak
+          command: ["start"]
+          args: ["--db", "postgres", "--db-url-host", "keycloak-postgres-postgresql", "--db-username", "keycloak", "--db-password", "6Sfa6MTpt96dY2D9Jv5c", "--db-url-database", "keycloak"]
           resources:
             requests:
               cpu: 400m
@@ -25,14 +27,6 @@ spec:
               cpu: "1"
               memory: 1Gi
           env:
-            - name: KC_DB
-              value: postgresql
-            - name: KC_DB_URL
-              value: jdbc:postgresql://keycloak-postgres-postgresql/keycloak
-            - name: KC_DB_USERNAME
-              value: keycloak
-            - name: KC_DB_PASSWORD
-              value: 6Sfa6MTpt96dY2D9Jv5c
             - name: KEYCLOAK_ADMIN
               value: admin
             - name: KEYCLOAK_ADMIN_PASSWORD

@@ -13,11 +13,7 @@ helm upgrade --install postgres bitnami/postgresql --namespace $namespace --crea
 ## Installer la chart postgres for keycloak
 helm upgrade --install keycloak-postgres bitnami/postgresql --namespace $namespace --create-namespace --version "12.11.1" -f $(pwd)/keycloak_postgres_values.yml
 
-## Installer la chart postgres for keycloak
-helm upgrade --install keycloak bitnami/keycloak --namespace $namespace --create-namespace --version "13.0.5" -f $(pwd)/keycloak_values.yml
-
-# keycloak_pod=$(kubectl get po --namespace $namespace --selector=app=keycloak --template='{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
-keycloak_pod=keycloak-0
+keycloak_pod=$(kubectl get po --namespace $namespace --selector=app=keycloak --template='{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 
 ## Attendre que le pod de keycloak soit pret
 kubectl wait --timeout=-1s --for=condition=Ready pod/$keycloak_pod -n $namespace
