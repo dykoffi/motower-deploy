@@ -17,7 +17,6 @@ spec:
       containers:
         - name: keycloak
           image: bitnami/keycloak
-          imagePullPolicy: Always
           resources:
             requests:
               cpu: 400m
