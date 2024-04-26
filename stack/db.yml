@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-ihm
+  namespace: oci-ihm
+spec:
+  serviceName: postgres
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:14-alpine  # Use the desired PostgreSQL version
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: ihm_db  # Change to your desired database name
+        - name: POSTGRES_USER
+          value: motower  # Change to your desired username
+        - name: POSTGRES_PASSWORD
+          value: 6Sfa6MTpt96dY2D9Jv5c 
+        volumeMounts:
+        - name: postgres-pvc
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-pvc
+    spec:
+      # storageClassName: ""
+      # volumeName: postgres-persistent-storage-postgres-ihm-0
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 8Gi 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: oci-ihm
+spec:
+  ports:
+  - port: 5432
+    name: postgres
+  clusterIP: None
+  selector:
+    app: postgres
