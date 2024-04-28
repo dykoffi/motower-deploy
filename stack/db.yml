@@ -1,54 +1,61 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres-ihm
+  name: postgres
   namespace: oci-ihm
 spec:
-  serviceName: postgres
-  replicas: 1  # Adjust the number of replicas as needed
   selector:
     matchLabels:
       app: postgres
+  serviceName: "db"
+  replicas: 1
+  minReadySeconds: 10
   template:
     metadata:
       labels:
         app: postgres
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
       - name: postgres
-        image: postgres:14-alpine  # Use the desired PostgreSQL version
+        image: postgres:14-alpine
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5432
         env:
         - name: POSTGRES_DB
-          value: ihm_db  # Change to your desired database name
+          value: ihm_db
         - name: POSTGRES_USER
-          value: motower  # Change to your desired username
+          value: ihm-user
         - name: POSTGRES_PASSWORD
-          value: 6Sfa6MTpt96dY2D9Jv5c 
+          value: "123456789"
+        - name: PGDATA
+          value: /var/lib/postgresql/data
         volumeMounts:
-        - name: postgres-pvc
-          mountPath: /var/lib/postgresql/data
+        - name: postgresql
+          mountPath: /var/lib/postgresql
   volumeClaimTemplates:
   - metadata:
-      name: postgres-pvc
+      name: postgresql
     spec:
-      # storageClassName: ""
-      # volumeName: postgres-persistent-storage-postgres-ihm-0
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: [ "ReadWriteMany" ]
       resources:
         requests:
-          storage: 8Gi 
+          storage: 5Gi
+
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres
+  name: db
   namespace: oci-ihm
 spec:
-  ports:
-  - port: 5432
-    name: postgres
-  clusterIP: None
   selector:
-    app: postgres
+    app: db
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 5432
+      nodePort: 30288
+      targetPort: 5432
