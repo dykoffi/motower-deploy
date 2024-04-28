@@ -18,7 +18,7 @@ spec:
       #   - name: dockersecret
       containers:
         - name: frontend-ihm
-          image: dykoffy//oci-frontend:latest  #Change this image according your env
+          image: dykoffy//oci-front:latest  #Change this image according your env
           imagePullPolicy: IfNotPresent
           env:
             - name: VITE_KEYCLOAK_URL_AUTH
