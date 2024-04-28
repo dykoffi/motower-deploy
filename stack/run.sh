@@ -8,7 +8,7 @@ kubectl apply -f rq.yml
 helm repo add bitnami https://charts.bitnami.com/bitnami 
 
 ## Installer la chart postgres
-helm upgrade --install postgres $(pwd)/postgres --namespace $namespace --create-namespace --version "12.11.1" -f $(pwd)/postgres_values.yml
+helm upgrade --install postgres $(pwd)/postgresql --namespace $namespace --create-namespace --version "12.11.1" -f $(pwd)/postgres_values.yml
 
 ## Installer la chart keycloak
 helm upgrade --install keycloak $(pwd)/keycloak --namespace $namespace --create-namespace --version "13.0.5" -f $(pwd)/keycloak_values.yml
