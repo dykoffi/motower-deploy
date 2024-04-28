@@ -14,11 +14,12 @@ spec:
       labels:
         app: backend-ihm
     spec:
-      imagePullSecrets:
-        - name: dockersecret
+      # imagePullSecrets:
+      #   - name: dockersecret
       containers:
         - name: backend-ihm
-          image: system.registry.eneci.net/oci-backend:latest #Change this image according your env
+          image: dykoffy/oci-backend:latest #Change this image according your env
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               cpu: 250m
