@@ -9,3 +9,5 @@ command:
     echo "MINIO_SECRET_KEY=${MINIO_SECRET_KEY}" >> .env && \
     echo "MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}" >> .env && \
     node src/main.js  # Exécute votre application
+
+Z2hwX2NtTW1XSGdmRVZjZ1JtdFlZNHI3bmt2MklHZ1pxdDQydUlybgo=
