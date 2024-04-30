@@ -25,8 +25,8 @@ spec:
               cpu: 250m
               memory: 256Mi
             limits:
-              cpu: 250m
-              memory: 256Mi
+              cpu: 800m
+              memory: 512Mi
           env:
             - name: MINIO_ENDPOINT
               value: "10.242.33.176"
